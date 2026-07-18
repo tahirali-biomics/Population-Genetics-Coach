@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+supabase/.temp/
+.DS_Store
+*.log
+*.bak
+*_old.*
+private-course-materials/*
+!private-course-materials/README.md
