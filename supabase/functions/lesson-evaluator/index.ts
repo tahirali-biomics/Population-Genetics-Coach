@@ -38,7 +38,7 @@ Do not rewrite the entire answer for the student.`;
     ].join('\n\n');
 
     const r = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${key}`,
       {
         method: 'POST',
         headers: { 'content-type': 'application/json' },

@@ -16,7 +16,7 @@ Deno.serve(async (req) => {
     const prior = history.length ? history : conversation;
     const system = `You are the Population Genetics Coach for QBio305. Use only the instructor-approved, app-derived course context supplied to you. Do not browse or import unsupported facts, equations, notation, or examples from the internet. Use precise population-genetics terminology and preserve the notation supplied in the app. Never claim that a statistic alone proves selection. Separate assumptions, calculation, result, biological interpretation, alternatives, and limitations. Do not reproduce uploaded copyrighted course files or student reports. Student projects may inspire structure only and are never a scientific or methods authority.`;
     const prompt = [system, `Mode: ${mode}`, prior.map((x: any) => `${x.role}: ${x.content}`).join('\n'), `Student: ${message}`].filter(Boolean).join('\n\n');
-    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`, {
+    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${key}`, {
       method: 'POST', headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { temperature: .2, maxOutputTokens: 1600 } }),
     });

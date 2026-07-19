@@ -1,12 +1,41 @@
-node_modules/
-dist/
+# Environment and credentials
 .env
 .env.*
 !.env.example
+
+# Dependencies and generated output
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Supabase CLI local files and migration backups
 supabase/.temp/
-.DS_Store
-*.log
+.supabase/
+supabase/migrations_backup_*/
+supabase/migrations_legacy/
+supabase/migrations_pending/
+
+# Local backups and editor metadata
+backups/
+*.before_*
 *.bak
 *_old.*
+*~
+._*
+.DS_Store
+
+# Private teaching materials and source archives
 private-course-materials/*
 !private-course-materials/README.md
+course-materials/
+*.pdf
+*.ppt
+*.pptx
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.zip
+*.tar
+*.tar.gz
+*.tgz
