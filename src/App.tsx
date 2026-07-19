@@ -1,8 +1,20 @@
+/*
+ * Population Genetics Coach
+ * Copyright © 2026 Dr. Tahir Ali
+ * All rights reserved. See LICENSE.
+ */
+
 import { useEffect, useMemo, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 import { NavLink, Route, Routes, useParams } from "react-router-dom";
 import type { Session } from "@supabase/supabase-js";
 import {
   Atom,
+  BadgeInfo,
   BookOpen,
   BrainCircuit,
   ChevronRight,
@@ -86,6 +98,153 @@ const icons: any = {
 };
 const privilegedRoles = ["coordinator", "admin", "manager", "app_manager"];
 const appManagerRoles = ["admin", "app_manager"];
+
+function normalizeAiResponse(input: unknown): string {
+  if (typeof input !== "string") return "";
+
+  return input
+    .replace(/\r\n?/g, "\n")
+    .replace(/\u00a0/g, " ")
+    .replace(/\$\s+([^$\n]+?)\s+\$/g, "$$$1$$")
+    .replace(/^\s*(?:\*{1,3}|_{1,3}|#{1,6}|\${1,2})\s*$/gm, "")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function AiMarkdown({ text }: { text: string }) {
+  const normalized = normalizeAiResponse(text);
+
+  return (
+    <div className="ai-markdown">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm, remarkMath]}
+        rehypePlugins={[rehypeKatex]}
+        components={{
+          a: ({ children, ...props }) => (
+            <a {...props} target="_blank" rel="noreferrer">
+              {children}
+            </a>
+          ),
+        }}
+      >
+        {normalized}
+      </ReactMarkdown>
+    </div>
+  );
+}
+
+type TutorTurn = {
+  role: "user" | "assistant";
+  content: string;
+};
+
+function equationToLatex(input: string): string {
+  return input
+    .replace(/²/g, "^2")
+    .replace(/³/g, "^3")
+    .replace(/P\(AA\)=p2/g, "P(AA)=p^2")
+    .replace(/P\(aa\)=q2/g, "P(aa)=q^2")
+    .replace(/\bF_ST\b/g, "F_{ST}")
+    .replace(/\bN_e\b/g, "N_e")
+    .replace(/\bN_em\b/g, "N_e m")
+    .replace(/\bp_local\b/g, "p_{\\mathrm{local}}")
+    .replace(/\bp_migrant\b/g, "p_{\\mathrm{migrant}}")
+    .replace(/\bthetaW\b/g, "\\theta_W")
+    .replace(/\btheta\b/gi, "\\theta")
+    .replace(/\bpi\b/gi, "\\pi")
+    .replace(/\bsum\b/gi, "\\sum")
+    .replace(/\*/g, "\\cdot ")
+    .replace(/<=/g, "\\leq ")
+    .replace(/>=/g, "\\geq ")
+    .replace(/≈/g, "\\approx ")
+    .replace(/->/g, "\\rightarrow ");
+}
+
+function LessonEquation({ equation }: { equation: string }) {
+  const latex = equationToLatex(equation);
+
+  return (
+    <div className="equation lesson-equation">
+      <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
+        {`$$${latex}$$`}
+      </ReactMarkdown>
+    </div>
+  );
+}
+
+function getTutorSuggestions(state: State): string[] {
+  const startedLessonIds = new Set([
+    ...state.completedLessons,
+    ...state.attempts.map((attempt) => attempt.contextId),
+  ]);
+
+  const coveredModules = new Set(
+    lessons
+      .filter((lesson) => startedLessonIds.has(lesson.id))
+      .map((lesson) => lesson.moduleId),
+  );
+
+  const suggestionsByModule: Record<string, string[]> = {
+    lecture1: [
+      "Why can a population deviate from Hardy–Weinberg expectations?",
+      "How do allele and genotype frequencies differ?",
+      "What is the biological meaning of heterozygosity?",
+    ],
+    lecture2: [
+      "Why is genetic drift stronger in small populations?",
+      "How does effective population size affect heterozygosity loss?",
+      "Why is the expected allele-frequency change under drift zero?",
+    ],
+    lecture3: [
+      "How do Wright–Fisher and Moran models differ?",
+      "Which assumptions of the Wright–Fisher model are most restrictive?",
+      "How is one Moran event related to a generation?",
+    ],
+    lecture4: [
+      "How should FST be interpreted biologically?",
+      "Why can population mixing create a heterozygote deficit?",
+      "How do migration and drift jointly affect population structure?",
+    ],
+    lecture5: [
+      "What does a coalescent waiting time represent?",
+      "How does effective population size shape genealogies?",
+      "Why do recent and ancient demographic events affect the SFS differently?",
+    ],
+    lecture6: [
+      "How do dominance and selection affect fixation probability?",
+      "Why can recessive deleterious alleles persist?",
+      "How should mean fitness be used in allele-frequency recursion?",
+    ],
+    lecture7: [
+      "Why can negative Tajima’s D reflect more than one process?",
+      "How can a demographic model be evaluated using the SFS?",
+      "Why are demographic models sometimes difficult to distinguish?",
+    ],
+    lecture8: [
+      "How can a selective sweep be distinguished from demography?",
+      "Why is a genomic outlier not automatically evidence of selection?",
+      "How do recombination and linkage disequilibrium affect genome scans?",
+    ],
+    theory1: [
+      "How does recombination change linkage disequilibrium through time?",
+      "Why does LD decay vary among populations?",
+    ],
+    theory2: [
+      "What evidence is needed to support molecular adaptation?",
+      "How do different tests of selection complement one another?",
+    ],
+  };
+
+  const ordered = modules
+    .map((module) => module.id)
+    .filter((moduleId) => coveredModules.has(moduleId))
+    .flatMap((moduleId) => suggestionsByModule[moduleId] || []);
+
+  const foundation = suggestionsByModule.lecture1;
+  return [...new Set(ordered.length ? ordered : foundation)].slice(-6);
+}
+
 function Head({
   eyebrow = "POPULATION GENETICS COACH",
   title,
@@ -127,6 +286,7 @@ function Shell({
     ["/workspaces", FlaskConical, "Workspaces"],
     ["/progress", ClipboardCheck, "Progress"],
     ["/settings", Settings, "Settings"],
+    ["/about", BadgeInfo, "About"],
   ];
   return (
     <div className={dark ? "app dark" : "app"}>
@@ -164,6 +324,16 @@ function Shell({
               <span>{session ? `${role} account` : "Preview mode"}</span>
             </div>
           </div>
+          <NavLink
+            to="/about"
+            className="developer-credit"
+            onClick={() => setOpen(false)}
+            aria-label="About Population Genetics Coach and developer information"
+          >
+            <strong>Population Genetics Coach v1.0</strong>
+            <span>Developed by Dr. Tahir Ali</span>
+            <span>University of Cologne · © 2026</span>
+          </NavLink>
           <button className="secondary" onClick={onAuth}>
             {session ? (
               <>
@@ -539,7 +709,7 @@ function Lesson({
         ))}
         <article className="panel glass">
           <h2>Model or equation</h2>
-          <div className="equation">{l.equation}</div>
+          <LessonEquation equation={l.equation} />
           <ul>
             {l.variables.map((x) => (
               <li key={x}>{x}</li>
@@ -638,11 +808,9 @@ async function syncLessonProgress(
     {
       user_id: user.id,
       lesson_id: lessonId,
-      completed:
-        completed === null ? Boolean(existing?.completed) : completed,
+      completed: completed === null ? Boolean(existing?.completed) : completed,
       score: score ?? existing?.score ?? null,
-      attempts:
-        Number(existing?.attempts || 0) + (incrementAttempts ? 1 : 0),
+      attempts: Number(existing?.attempts || 0) + (incrementAttempts ? 1 : 0),
       updated_at: new Date().toISOString(),
     },
     { onConflict: "user_id,lesson_id" },
@@ -707,8 +875,7 @@ async function syncWorkspaceProgress(args: {
       workspace_id: args.workspaceId,
       stage_index: args.stageIndex,
       completed: args.completed,
-      draft:
-        args.draft === undefined ? (existing?.draft ?? null) : args.draft,
+      draft: args.draft === undefined ? (existing?.draft ?? null) : args.draft,
       ai_feedback:
         args.aiFeedback === undefined
           ? (existing?.ai_feedback ?? null)
@@ -998,7 +1165,11 @@ function Workspace({
                 </div>
                 <div className="stage-guide">
                   <h4>Questions to work through</h4>
-                  <ol>{guide?.prompts.map((p) => <li key={p}>{p}</li>)}</ol>
+                  <ol>
+                    {guide?.prompts.map((p) => (
+                      <li key={p}>{p}</li>
+                    ))}
+                  </ol>
                 </div>
                 {id === "exam" && i === 10 ? (
                   <MockExam state={state} setState={setState} />
@@ -1109,8 +1280,9 @@ function AIActivity({
         { body: { contextId, title, prompt, response: text } },
       );
       if (error) throw error;
-      const returnedFeedback =
-        data?.feedback || data?.message || "Evaluation completed.";
+      const returnedFeedback = normalizeAiResponse(
+        data?.feedback || data?.message || "Evaluation completed.",
+      );
       setFeedback(returnedFeedback);
       onEvaluated?.(text, returnedFeedback);
       void syncConversationTurn({
@@ -1148,7 +1320,7 @@ function AIActivity({
             <b>AI feedback</b>
             <SpeakButton text={feedback} id={`feedback-${contextId}`} />
           </div>
-          <p>{feedback}</p>
+          <AiMarkdown text={feedback} />
         </div>
       )}
     </section>
@@ -1525,7 +1697,9 @@ function Coordinator() {
   const [detailLoading, setDetailLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const selected = students.find((student) => student.student_user_id === selectedId);
+  const selected = students.find(
+    (student) => student.student_user_id === selectedId,
+  );
 
   useEffect(() => {
     let active = true;
@@ -1672,9 +1846,7 @@ function Coordinator() {
                   </div>
                   <div>
                     <dt>Mean score</dt>
-                    <dd>
-                      {Number(student.mean_score || 0).toFixed(1)}%
-                    </dd>
+                    <dd>{Number(student.mean_score || 0).toFixed(1)}%</dd>
                   </div>
                   <div>
                     <dt>AI interactions</dt>
@@ -1705,7 +1877,9 @@ function Coordinator() {
             <div>
               <small>SELECTED STUDENT</small>
               <h2>{selected.display_name}</h2>
-              <p className="muted">User ID …{selected.student_user_id.slice(-8)}</p>
+              <p className="muted">
+                User ID …{selected.student_user_id.slice(-8)}
+              </p>
             </div>
             {detailLoading && <span className="muted">Loading details…</span>}
           </div>
@@ -1843,88 +2017,242 @@ function Tutor({
   setState,
   role,
   canPreview,
+  userId,
 }: {
   state: State;
   setState: (s: State) => void;
   role: string;
   canPreview: boolean;
+  userId: string;
 }) {
+  const storageKey = `pg-tutor-conversation-v2:${userId || "guest"}`;
   const [msg, setMsg] = useState("");
-  const [reply, setReply] = useState("");
+  const [conversation, setConversation] = useState<TutorTurn[]>([]);
+  const [conversationReady, setConversationReady] = useState(false);
   const [loading, setLoading] = useState(false);
   const { prefs } = useVoicePreferences();
+  const suggestions = useMemo(
+    () => getTutorSuggestions(state),
+    [
+      state.completedLessons.join("|"),
+      state.attempts.map((attempt) => attempt.contextId).join("|"),
+    ],
+  );
+  const lastAssistantIndex = conversation.reduce(
+    (last, turn, index) => (turn.role === "assistant" ? index : last),
+    -1,
+  );
   useEffect(() => {
-    if (reply && prefs.autoRead) speakText(reply, prefs, "tutor-reply");
-  }, [reply]);
-  if (role === "guest" && !canPreview)
+    setConversationReady(false);
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
+      setConversation(Array.isArray(saved) ? saved.slice(-20) : []);
+    } catch {
+      setConversation([]);
+    } finally {
+      setConversationReady(true);
+    }
+  }, [storageKey]);
+
+  useEffect(() => {
+    if (!conversationReady) return;
+    localStorage.setItem(storageKey, JSON.stringify(conversation.slice(-20)));
+  }, [conversation, conversationReady, storageKey]);
+
+  if (role === "guest" && !canPreview) {
     return (
       <LockedPreview
         title="AI population-genetics tutor"
         text="Course-grounded support for registered learners."
       />
     );
+  }
+
+  function startNewTopic() {
+    stopSpeaking();
+    setConversation([]);
+    setMsg("");
+    localStorage.removeItem(storageKey);
+  }
+
   async function send() {
-    if (!msg.trim()) return;
+    const question = msg.trim();
+    if (!question || loading) return;
+
+    const priorConversation = conversation.slice(-10);
     setLoading(true);
+    setMsg("");
     setState({ ...state, aiInteractions: state.aiInteractions + 1 });
+
     try {
       if (!supabase) {
-        setReply(
-          "The tutor is ready, but Supabase is not configured in this local preview. Add your Supabase URL and publishable key and deploy the ai-tutor Edge Function.",
-        );
+        setConversation((current) => [
+          ...current,
+          { role: "user", content: question },
+          {
+            role: "assistant",
+            content:
+              "The tutor is ready, but Supabase is not configured in this preview.",
+          },
+        ]);
         return;
       }
+
       const { data, error } = await supabase.functions.invoke("ai-tutor", {
-        body: { message: msg, conversation: [] },
+        body: {
+          message: question,
+          mode: "theory",
+          conversation: priorConversation,
+        },
       });
+
       if (error) throw error;
-      const returnedReply =
-        data?.reply || data?.message || "The tutor returned no text.";
-      setReply(returnedReply);
+
+      const returnedReply = normalizeAiResponse(
+        data?.reply || data?.message || "The tutor returned no usable text.",
+      );
+
+      const updatedConversation: TutorTurn[] = [
+        ...conversation,
+        { role: "user", content: question },
+        { role: "assistant", content: returnedReply },
+      ];
+      const nextConversation = updatedConversation.slice(-20);
+
+      setConversation(nextConversation);
+      if (prefs.autoRead) {
+        speakText(returnedReply, prefs, "tutor-reply");
+      }
+
       void syncConversationTurn({
         mode: "tutor",
-        userText: msg,
+        userText: question,
         aiReply: returnedReply,
+        feedback: {
+          topicTurn: nextConversation.length,
+          coveredLessons: state.completedLessons,
+        },
       });
     } catch (error: any) {
-      setReply(error?.message || "The AI tutor could not be reached.");
+      const message =
+        error?.context?.body?.error ||
+        error?.message ||
+        "The AI tutor could not be reached.";
+
+      setConversation((current) => [
+        ...current,
+        { role: "user", content: question },
+        {
+          role: "assistant",
+          content: message.includes("incomplete")
+            ? "The tutor generated an incomplete response. Please submit the question again."
+            : message,
+        },
+      ]);
     } finally {
       setLoading(false);
     }
   }
+
   return (
     <>
       <Head
         title="AI population-genetics tutor"
         text="Course-grounded support restricted to approved uploaded teaching content."
       />
-      <div className="chat glass">
+
+      <div className="chat glass tutor-chat">
         <div className="chat-intro">
           <BrainCircuit />
           <div>
             <h2>Ask a question</h2>
             <p>
-              Production responses are generated through the Supabase Edge
-              Function and grounded in approved derived course content.
+              Follow-up questions retain the current topic. Start a new topic
+              whenever you want to clear the conversation context.
             </p>
           </div>
+          <button
+            type="button"
+            className="secondary tutor-new-topic"
+            onClick={startNewTopic}
+            disabled={!conversation.length}
+          >
+            <RotateCcw />
+            New topic
+          </button>
         </div>
-        {reply && (
-          <div className="bubble ai">
-            <div className="feedback-head">
-              <b>AI tutor</b>
-              <SpeakButton text={reply} id="tutor-reply" />
-            </div>
-            {reply}
+
+        {conversation.length > 0 && (
+          <div className="tutor-history" aria-live="polite">
+            {conversation.map((turn, index) => {
+              const isAssistant = turn.role === "assistant";
+              const isLastAssistant =
+                isAssistant && index === lastAssistantIndex;
+
+              return (
+                <article
+                  className={
+                    isAssistant
+                      ? "bubble ai tutor-turn assistant-turn"
+                      : "bubble tutor-turn user-turn"
+                  }
+                  key={`${turn.role}-${index}`}
+                >
+                  <div className="feedback-head">
+                    <b>{isAssistant ? "AI tutor" : "You"}</b>
+                    {isLastAssistant && (
+                      <SpeakButton text={turn.content} id="tutor-reply" />
+                    )}
+                  </div>
+                  {isAssistant ? (
+                    <AiMarkdown text={turn.content} />
+                  ) : (
+                    <p>{turn.content}</p>
+                  )}
+                </article>
+              );
+            })}
           </div>
         )}
+
+        {!conversation.length && (
+          <div className="tutor-empty">
+            <b>Suggested questions from your current course coverage</b>
+            <p>
+              These prompts update as you begin and complete additional lessons.
+            </p>
+          </div>
+        )}
+
+        <div className="tutor-suggestions">
+          {suggestions.map((suggestion) => (
+            <button
+              type="button"
+              className="suggestion-chip"
+              key={suggestion}
+              onClick={() => setMsg(suggestion)}
+            >
+              {suggestion}
+            </button>
+          ))}
+        </div>
+
         <VoiceTextarea
           value={msg}
           onChange={setMsg}
           id="tutor-question"
-          placeholder="Example: Why can negative Tajima’s D reflect more than one process?"
+          placeholder={
+            conversation.length
+              ? "Ask a follow-up question or start a new topic…"
+              : suggestions[0] || "Ask a population-genetics question…"
+          }
         />
-        <button className="primary" onClick={send} disabled={loading}>
+
+        <button
+          className="primary"
+          onClick={send}
+          disabled={loading || !msg.trim()}
+        >
           {loading ? "Thinking…" : "Send question"}
         </button>
       </div>
@@ -2081,6 +2409,69 @@ function SettingsPage() {
             Raw lectures, books, exercises, solutions, practicals, project
             reports, and instructor pipelines remain outside the Git repository
             and deployment bundle.
+          </p>
+        </article>
+      </div>
+    </>
+  );
+}
+
+
+function AboutPage() {
+  return (
+    <>
+      <Head
+        eyebrow="ABOUT · AUTHORSHIP · CITATION"
+        title="Population Genetics Coach"
+        text="An interactive, lecture-grounded course companion for population and quantitative genetics."
+      />
+
+      <div className="about-grid">
+        <article className="panel glass about-card about-lead">
+          <small>VERSION 1.0</small>
+          <h2>Development and authorship</h2>
+          <p className="about-identity">
+            <strong>Population Genetics Coach v1.0</strong>
+            <span>Developed by Dr. Tahir Ali</span>
+            <span>University of Cologne</span>
+            <span>Copyright © 2026 Dr. Tahir Ali. All rights reserved.</span>
+          </p>
+        </article>
+
+        <article className="panel glass about-card">
+          <h2>Suggested citation</h2>
+          <blockquote className="citation-block">
+            Ali, T. (2026). <em>Population Genetics Coach, version 1.0</em>.
+            University of Cologne.
+          </blockquote>
+          <p>
+            A citable release or DOI may be added to this page when an archived
+            software release becomes available.
+          </p>
+        </article>
+
+        <article className="panel glass about-card">
+          <h2>Use and permissions</h2>
+          <p>
+            The application, source code, interface, original instructional
+            workflows, prompts, and documentation may not be copied, modified,
+            redistributed, incorporated into another application, or used to
+            create derivative software without prior written permission from
+            the copyright holder.
+          </p>
+          <p>
+            Third-party libraries, scientific concepts, institutional
+            materials, and other separately governed content remain subject to
+            their own rights and licences.
+          </p>
+        </article>
+
+        <article className="panel glass about-card">
+          <h2>Course and privacy boundary</h2>
+          <p>
+            The application supports QBio305 learning activities. Raw lectures,
+            books, exercises, solutions, student reports, and instructor
+            pipelines remain outside the public deployment bundle.
           </p>
         </article>
       </div>
@@ -2428,6 +2819,7 @@ export default function App() {
               setState={setState}
               role={visibleRole}
               canPreview={previewUnlocked}
+              userId={session?.user.id || "guest"}
             />
           }
         />
@@ -2442,6 +2834,7 @@ export default function App() {
           }
         />
         <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
       <AuthModal
         open={authOpen}

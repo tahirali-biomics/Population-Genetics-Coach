@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use Population Genetics Coach, please cite the software using the metadata below."
+title: "Population Genetics Coach"
+type: software
+version: "v1.0"
+date-released: "2026-07-20"
+authors:
+  - family-names: "Tahir"
+    given-names: "Ali"
+    affiliation: "Institute for Plant Sciences, University of Cologne"
+    orcid: https://orcid.org/0000-0003-2371-0884
+doi: "10.5281/zenodo.21446149"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21446149"
+    description: "Version-specific DOI for Population Genetics Coach v1.0"
+  - type: doi
+    value: "10.5281/zenodo.21446148"
+    description: "Concept DOI representing all versions"
+repository-code: "https://github.com/tahirali-biomics/Population-Genetics-Coach"
+url: "https://doi.org/10.5281/zenodo.21446149"
+license: "LicenseRef-Proprietary"
+abstract: >-
+  Interactive AI-assisted course companion for university-level population
+  and quantitative genetics, including lecture-grounded lessons, guided
+  workspaces, formative assessment, voice interaction, progress tracking,
+  and role-controlled coordinator analytics.
+keywords:
+  - population genetics
+  - quantitative genetics
+  - biology education
+  - AI-assisted learning
+  - formative assessment
+  - scientific reasoning

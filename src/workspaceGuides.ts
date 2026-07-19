@@ -1,3 +1,9 @@
+/*
+ * Population Genetics Coach
+ * Copyright © 2026 Dr. Tahir Ali
+ * All rights reserved. See LICENSE.
+ */
+
 export type StageGuide = {
   purpose: string;
   prompts: string[];

@@ -1,3 +1,9 @@
+/*
+ * Population Genetics Coach
+ * Copyright © 2026 Dr. Tahir Ali
+ * All rights reserved. See LICENSE.
+ */
+
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts';
 
 const cors = {
@@ -17,6 +23,8 @@ Deno.serve(async (req) => {
     if (!key) {
       return new Response(JSON.stringify({ error: 'GEMINI_API_KEY is not configured.' }), { status: 500, headers: cors });
     }
+
+    const model = Deno.env.get('GEMINI_MODEL') || 'gemini-3.1-flash-lite';
 
     const system = `You are the course-grounded evaluator for QBio305 Population & Quantitative Genetics.
 Evaluate only against the task context supplied by the application and the instructor-approved derived course content available to the app. Do not browse, add facts from the internet, introduce alternative mathematical notation, or invent missing course content. Preserve the terminology and model framing supplied in the task. Student reports are never scientific authorities.
@@ -38,7 +46,7 @@ Do not rewrite the entire answer for the student.`;
     ].join('\n\n');
 
     const r = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${key}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`,
       {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
@@ -48,11 +56,70 @@ Do not rewrite the entire answer for the student.`;
         }),
       },
     );
-    const j = await r.json();
-    if (!r.ok) throw new Error(j?.error?.message || 'Gemini evaluation failed.');
-    const feedback = j?.candidates?.[0]?.content?.parts?.map((part: any) => part.text ?? '').join('') || 'No feedback was generated.';
+    const responseText = await r.text();
+    let j: any = {};
+
+    try {
+      j = responseText ? JSON.parse(responseText) : {};
+    } catch {
+      console.error('Gemini evaluator returned invalid JSON', {
+        status: r.status,
+        body: responseText.slice(0, 1000),
+      });
+      return new Response(
+        JSON.stringify({ error: 'Gemini returned an invalid response.' }),
+        { status: 502, headers: cors },
+      );
+    }
+
+    if (!r.ok) {
+      const upstreamMessage =
+        j?.error?.message || 'Gemini evaluation failed.';
+
+      console.error('Gemini evaluation failed', {
+        status: r.status,
+        model,
+        message: upstreamMessage,
+      });
+
+      if (
+        r.status === 429 ||
+        /quota|rate limit|resource_exhausted/i.test(upstreamMessage)
+      ) {
+        return new Response(
+          JSON.stringify({
+            error:
+              'The AI evaluator has temporarily reached its usage limit. Please try again shortly.',
+            code: 'QUOTA_EXCEEDED',
+          }),
+          { status: 429, headers: cors },
+        );
+      }
+
+      return new Response(
+        JSON.stringify({
+          error: upstreamMessage,
+          code: 'GEMINI_REQUEST_FAILED',
+        }),
+        { status: r.status >= 400 ? r.status : 502, headers: cors },
+      );
+    }
+
+    const feedback =
+      j?.candidates?.[0]?.content?.parts
+        ?.map((part: any) => part.text ?? '')
+        .join('') || 'No feedback was generated.';
+
     return new Response(JSON.stringify({ feedback }), { headers: cors });
   } catch (error) {
-    return new Response(JSON.stringify({ error: String(error) }), { status: 400, headers: cors });
+    console.error('Lesson evaluator failure', error);
+    return new Response(
+      JSON.stringify({
+        error:
+          error instanceof Error ? error.message : 'Unexpected evaluator error.',
+        code: 'LESSON_EVALUATOR_ERROR',
+      }),
+      { status: 500, headers: cors },
+    );
   }
 });

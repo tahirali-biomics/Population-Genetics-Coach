@@ -1,3 +1,9 @@
+/*
+ * Population Genetics Coach
+ * Copyright © 2026 Dr. Tahir Ali
+ * All rights reserved. See LICENSE.
+ */
+
 import raw from "./courseData.json";
 
 export type AssessmentQuestion = {
