@@ -54,3 +54,17 @@ test('student transfer heading is concise while evaluation keeps the authored re
   assert(app.includes('Authored lesson reference:'));
   assert(!app.includes('<h4>{compact ? "Your working response" : prompt}</h4>'));
 });
+
+
+test('MK reference survives retrieval with canonical ratios and tutor denominator guard', () => {
+  const context = buildTutorContext('Explain MK', course.lessons, []);
+  assert(context.includes('PN/PS≈DN/DS'));
+  assert(context.includes('P_ND_S/(P_SD_N)'));
+  assert(context.includes('\\alpha=1-\\mathrm{NI}'));
+  assert(context.includes('NI=(20×80)/(80×40)=0.5; alpha=0.5'));
+  assert(!context.includes('PN/PN'));
+  const instructions = fs.readFileSync('supabase/functions/ai-tutor/index.ts', 'utf8');
+  assert(instructions.includes('PN/PS > DN/DS (NI>1)'));
+  assert(instructions.includes('NI=(PN×DS)/(PS×DN); alpha=1−NI'));
+  assert(instructions.includes('never replace PS with PN'));
+});

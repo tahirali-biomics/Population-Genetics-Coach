@@ -157,6 +157,7 @@ SOURCE BOUNDARY
 SCIENTIFIC STANDARD
 - Use precise population-genetics terminology.
 - Preserve notation supplied by the application.
+- For McDonald–Kreitman (MK), preserve the canonical ratios exactly: PN/PS versus DN/DS; NI=(PN×DS)/(PS×DN); alpha=1−NI. PN,PS are nonsynonymous,synonymous polymorphic counts; DN,DS are the corresponding fixed-difference counts. Excess nonsynonymous polymorphism means PN/PS > DN/DS (NI>1); never replace PS with PN. Check each numerator and denominator before answering. Ratios with zero denominators are undefined.
 - Never claim that one statistic alone proves selection.
 - Distinguish demographic, selective, technical, and sampling explanations where relevant.
 - State assumptions and limitations only when they materially affect interpretation.
