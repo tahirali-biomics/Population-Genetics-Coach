@@ -19,7 +19,7 @@ https://tahirali-biomics.github.io/Population-Genetics-Coach/
 
 The linked local Supabase project and configured frontend host both identify `dpftoriqsefbotcfxuxw`. The updated `ai-tutor` Edge Function must also be deployed to that project so the production tutor consumes the supplied authored context. The unchanged lesson evaluator already accepts the task/reference prompt. No SQL migration or production-data reset is part of deployment.
 
-## Current access blocker
+## Historical access blocker (resolved)
 
 The Supabase CLI access check returned **Invalid access token**. No function deployment or frontend production update was attempted after that failure. GitHub access is available, and its current main head matched the local pre-release base during preparation.
 
@@ -27,4 +27,13 @@ Restore Supabase CLI authorization locally with `supabase login` (do not paste c
 
 ## Remaining verification limits
 
-Authenticated browser inspection with an existing login and actual LLM replies remain to be exercised after deployment. Unfinished assessment attempts resume only in the same browser profile/origin; completed snapshots use existing answer JSON and preserve recorded scores. Source-specific instructor-review items remain documented in the scientific audit. Neither frontend deployment nor function deployment requires changing student records, roles, enrollment or database schema.
+Authenticated browser inspection with an existing login remains unverified. Direct live tutor replies have now been verified; see the current status below. Unfinished assessment attempts resume only in the same browser profile/origin; completed snapshots use existing answer JSON and preserve recorded scores. Source-specific instructor-review items remain documented in the scientific audit. Neither frontend deployment nor function deployment requires changing student records, roles, enrollment or database schema.
+
+
+## Current status — targeted MK correction, 2026-10-14
+
+- Fix commit: `f5b01d9208072eb68d7156a68203a3413989a8d1`. The authored T2 MK reference and its retrieval were already correct and remain unchanged. Only tutor instructions gained a concise canonical-ratio/denominator guard; a regression test verifies retrieved NI, alpha and the worked example.
+- Checks: all five focused release/retrieval tests passed, TypeScript passed, and diff whitespace checks passed. No frontend source changed, so no additional production build was needed for this instruction-only repair.
+- Deployment: only `ai-tutor` deployed to `dpftoriqsefbotcfxuxw`, active version 9 with JWT verification enabled. `gemini-3.5-flash-lite` retained; evaluator version 4, assessments, database, RLS and student records unchanged. The earlier access blocker is resolved. Frontend enrichment and error handling were already published from `ed00c508c0e8242629daffe293015135ed0dafbb`.
+- Exactly one live MK request returned HTTP 200 with `PN/PS > DN/DS`, `NI=(PN×DS)/(PS×DN)` and `alpha=1−NI` correctly. Tested directly with the application publishable key, without a signed-in browser session or student-record writes.
+- Remaining work: signed-in browser inspection remains unverified. The live reply had cramped spacing adjacent to display math; no unrelated formatting changes were made. An instruction reduces model transcription risk but cannot guarantee every future generation. No further live request or curriculum audit was performed.
