@@ -4,3 +4,4 @@ import './rendering.test.mjs';
 import './phase3-science.test.mjs';
 import './assessment-attempt.test.mjs';
 import './release.test.mjs';
+import './tutor-reliability.test.mjs';

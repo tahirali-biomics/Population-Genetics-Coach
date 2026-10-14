@@ -5,6 +5,8 @@
  */
 
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { createRequestBudget, requestGemini, selectTutorModel } from "./geminiRequest.ts";
+import type { RequestBudget } from "./geminiRequest.ts";
 
 const cors = {
   "content-type": "application/json",
@@ -68,6 +70,7 @@ async function generateTutorReply(args: {
   prior: TutorTurn[];
   mode: string;
   conciseRetry?: boolean;
+  budget: RequestBudget;
 }) {
   const contents = [
     ...args.prior.map((turn) => ({
@@ -86,64 +89,15 @@ async function generateTutorReply(args: {
     },
   ];
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${args.model}:generateContent?key=${args.key}`,
-    {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        systemInstruction: {
-          parts: [
-            {
-              text: `${args.system}\n\nCurrent tutor mode: ${args.mode}`,
-            },
-          ],
-        },
-        contents,
-        generationConfig: {
-          temperature: args.conciseRetry ? 0.1 : 0.15,
-          maxOutputTokens: args.conciseRetry ? 700 : 950,
-          topP: 0.9,
-        },
-      }),
+  const result = await requestGemini(args.model, args.key, {
+    systemInstruction: { parts: [{ text: `${args.system}\n\nCurrent tutor mode: ${args.mode}` }] },
+    contents,
+    generationConfig: {
+      temperature: args.conciseRetry ? 0.1 : 0.15,
+      maxOutputTokens: args.conciseRetry ? 700 : 950,
+      topP: 0.9,
     },
-  );
-
-  const responseText = await response.text();
-
-  let result: any = {};
-  try {
-    result = responseText ? JSON.parse(responseText) : {};
-  } catch {
-    console.error("Gemini returned invalid JSON", {
-      status: response.status,
-      body: responseText.slice(0, 1000),
-    });
-    throw new Error("Gemini returned an invalid response.");
-  }
-
-  if (!response.ok) {
-    const upstreamMessage =
-      result?.error?.message || "Gemini tutor request failed.";
-
-    console.error("Gemini tutor request failed", {
-      status: response.status,
-      model: args.model,
-      message: upstreamMessage,
-    });
-
-    const error = new Error(upstreamMessage) as Error & {
-      status?: number;
-      code?: string;
-    };
-    error.status = response.status;
-    error.code =
-      response.status === 429 ||
-      /quota|rate limit|resource_exhausted/i.test(upstreamMessage)
-        ? "QUOTA_EXCEEDED"
-        : "GEMINI_REQUEST_FAILED";
-    throw error;
-  }
+  }, args.budget);
 
   const candidate = result?.candidates?.[0];
   const finishReason = candidate?.finishReason || "UNKNOWN";
@@ -180,8 +134,8 @@ Deno.serve(async (req) => {
       return json({ error: "GEMINI_API_KEY is not configured." }, 500);
     }
 
-    const model =
-      Deno.env.get("GEMINI_MODEL") || "gemini-3.1-flash-lite";
+    const model = selectTutorModel(name => Deno.env.get(name));
+    const budget = createRequestBudget();
 
     const prior = sanitizeConversation(
       Array.isArray(history) && history.length ? history : conversation,
@@ -235,6 +189,7 @@ END COURSE REFERENCE EXCERPTS
     let result = await generateTutorReply({
       key,
       model,
+      budget,
       system,
       message: message.trim(),
       prior,
@@ -248,6 +203,7 @@ END COURSE REFERENCE EXCERPTS
       result = await generateTutorReply({
         key,
         model,
+        budget,
         system,
         message: message.trim(),
         prior,
@@ -284,6 +240,7 @@ END COURSE REFERENCE EXCERPTS
     const typedError = error as Error & {
       status?: number;
       code?: string;
+      providerMessage?: string;
     };
 
     console.error("AI tutor failure", {
@@ -298,6 +255,7 @@ END COURSE REFERENCE EXCERPTS
           error:
             "The AI tutor has temporarily reached its usage limit. Please try again shortly.",
           code: "QUOTA_EXCEEDED",
+          providerMessage: typedError.providerMessage,
         },
         429,
       );
@@ -307,6 +265,7 @@ END COURSE REFERENCE EXCERPTS
       {
         error: message,
         code: typedError.code || "AI_TUTOR_ERROR",
+        providerMessage: typedError.providerMessage,
       },
       typedError.status && typedError.status >= 400
         ? typedError.status

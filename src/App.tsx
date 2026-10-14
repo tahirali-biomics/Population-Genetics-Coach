@@ -60,6 +60,7 @@ import type { AssessmentDraft } from "./assessmentAttempt";
 import { AssessmentQuiz } from "./AssessmentQuiz";
 import { AIActivityHeading } from "./AIActivityHeading";
 import { buildTutorContext } from "./courseContext";
+import { edgeFunctionErrorMessage } from "./edgeFunctionError";
 import { supabase } from "./supabase";
 import {
   useVoicePreferences,
@@ -1231,7 +1232,7 @@ function AIActivity({
         feedback: { contextId, title },
       });
     } catch (error: any) {
-      setFeedback(error?.message || "AI evaluation could not be completed.");
+      setFeedback(await edgeFunctionErrorMessage(error, "AI evaluation could not be completed"));
     } finally {
       setLoading(false);
     }
@@ -2075,10 +2076,7 @@ function Tutor({
         },
       });
     } catch (error: any) {
-      const message =
-        error?.context?.body?.error ||
-        error?.message ||
-        "The AI tutor could not be reached.";
+      const message = await edgeFunctionErrorMessage(error, "The AI tutor could not be reached");
 
       setConversation((current) => [
         ...current,

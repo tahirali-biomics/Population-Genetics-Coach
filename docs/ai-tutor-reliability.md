@@ -1,0 +1,11 @@
+# AI tutor reliability repair — 2026-10-14
+
+The repair changes only tutor provider requests and AI error presentation. The evaluator continues to use `GEMINI_MODEL`; the tutor selects `GEMINI_TUTOR_MODEL`, then `GEMINI_MODEL`, then its existing `gemini-3.1-flash-lite` default.
+
+In Population Genetics Coach project `dpftoriqsefbotcfxuxw`, the tutor override is `gemini-3.5-flash-lite`. No previous override existed. Removing this override restores the previous model selection. Shared model and API-key digests were unchanged after deployment. Only `ai-tutor` was deployed; deployed JWT verification remains enabled. No migrations, database writes, RLS changes, or Ecology Coach changes were performed.
+
+Requests allow at most three provider calls in a shared 45-second budget, including the existing optional concise-answer request. Each call, including response-body reading, times out after at most 15 seconds. Temporary HTTP 408/429/500/502/503/504 and transport failures retry with bounded exponential backoff and jitter. Authentication, permission, invalid-request and missing-model failures are not retried. Exhausted failures return useful JSON messages; frontend error handling reads a cloned Edge Function response rather than displaying the generic non-2xx wrapper. Provider credentials are passed in a header, not the URL, and redacted from returned provider errors.
+
+Verification: 44 automated tests passed, including seven focused reliability tests; TypeScript and production build passed. The existing large-bundle warning remains. A direct deployed endpoint request for `Explain MK` returned HTTP 200 and a complete McDonald–Kreitman explanation using the tutor override. This used the application's publishable key without an authenticated browser session; signed-in browser behavior was not directly verified. JWT configuration was independently checked through function metadata.
+
+All 26 enriched lesson assessment banks and attempt-randomization code were found in the live frontend bundle before publishing this repair. Curriculum, assessment keys, saved attempts, progress, permissions, workspaces, schema and deployment workflow are unchanged. The untracked `supabase/.gitignore` is preserved and excluded from the commit. Provider availability cannot be guaranteed; bounded retries and useful errors handle subsequent outages.
