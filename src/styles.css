@@ -2045,6 +2045,27 @@ body {
   min-width: 0;
 }
 
+.lesson-content { min-width: 0; line-height: 1.75; overflow-wrap: anywhere; }
+.lesson-content > :first-child { margin-top: 0; }
+.lesson-content > :last-child { margin-bottom: 0; }
+.lesson-content p { line-height: 1.75; }
+.lesson-content .katex-display { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: .7rem 0; }
+.lesson-content .katex { font-size: 1.05em; }
+.lesson-content .katex-display:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.lesson-content a { color: var(--green); text-decoration: underline; }
+.lesson-content ul, .lesson-content ol { padding-left: 1.5rem; }
+.lesson-content li { margin: .4rem 0; }
+.lesson-table-scroll { overflow-x: auto; max-width: 100%; margin: 1rem 0; }
+.lesson-table-scroll table { border-collapse: collapse; width: 100%; }
+.lesson-table-scroll th, .lesson-table-scroll td { border: 1px solid var(--line); padding: .6rem; text-align: left; }
+.lesson-practice { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.lesson-practice summary { cursor: pointer; font-weight: 650; padding: .7rem 0; }
+.lesson-practice details[open] { padding-bottom: .5rem; }
+.lesson-practice summary:focus-visible, .lesson-table-scroll:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.question-prompt { margin-bottom: .75rem; }
+.options .lesson-content { flex: 1; }
+.lesson-rich { min-width: 0; }
+
 .about-card h2 {
   margin-top: 0;
 }

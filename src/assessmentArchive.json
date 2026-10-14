@@ -1,0 +1,2654 @@
+{
+  "l1-allele-genotype": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Allele and genotype frequencies from population samples?",
+      "options": [
+        "Allele frequency is obtained by counting allele copies, not individuals.",
+        "Allele frequency is calculated from phenotype labels only.",
+        "Every individual contributes one allele copy.",
+        "A sample frequency has no sampling uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Allele frequency is obtained by counting allele copies, not individuals."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "p = (2NAA + NAa)/(2N); q = 1 - p",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "p = (2NAA + NAa)/(2N); q = 1 - p"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Dividing allele counts by N instead of 2N",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Using percentages and proportions in the same calculation",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Allele and genotype frequencies from population samples?",
+      "options": [
+        "Dividing allele counts by N instead of 2N",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Dividing allele counts by N instead of 2N"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "For a biallelic locus p+q=1.",
+      "answer": true,
+      "explanation": "Correct: For a biallelic locus p+q=1."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "A heterozygote contributes one copy of each allele.",
+      "answer": true,
+      "explanation": "Correct: A heterozygote contributes one copy of each allele."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Genotype frequencies must sum to one.",
+      "answer": true,
+      "explanation": "Correct: Genotype frequencies must sum to one."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Allele counts in diploids are divided by N.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "The rarer allele must always be q.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l1-diversity": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Quantifying molecular diversity?",
+      "options": [
+        "Diversity statistics summarize different features of the same allele-frequency distribution.",
+        "Heterozygosity counts only homozygotes.",
+        "Nucleotide diversity ignores allele frequency.",
+        "Raw segregating-site counts are independent of sample size."
+      ],
+      "answer": 0,
+      "explanation": "Diversity statistics summarize different features of the same allele-frequency distribution."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "H = 1 - \u03a3 p_i\u00b2;  \u03c0 = [\u03a3 pairwise differences] / [C(n,2)L]",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "H = 1 - \u03a3 p_i\u00b2;  \u03c0 = [\u03a3 pairwise differences] / [C(n,2)L]"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Calling heterozygosity the observed fraction of heterozygous individuals in every context",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Forgetting to divide pairwise differences by sequence length",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Quantifying molecular diversity?",
+      "options": [
+        "Calling heterozygosity the observed fraction of heterozygous individuals in every context",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Calling heterozygosity the observed fraction of heterozygous individuals in every context"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Expected heterozygosity is a probability.",
+      "answer": true,
+      "explanation": "Correct: Expected heterozygosity is a probability."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Pi averages pairwise differences per site.",
+      "answer": true,
+      "explanation": "Correct: Pi averages pairwise differences per site."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Rare variants contribute less to heterozygosity than intermediate variants.",
+      "answer": true,
+      "explanation": "Correct: Rare variants contribute less to heterozygosity than intermediate variants."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "H can exceed one.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Pi is calculated from one arbitrarily chosen pair.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l1-hwe": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Hardy\u2013Weinberg equilibrium as a null model?",
+      "options": [
+        "HWE translates allele frequencies into a genotype-frequency null expectation.",
+        "HWE predicts equal genotype frequencies.",
+        "HWE identifies the cause of every deviation.",
+        "The heterozygote frequency is pq."
+      ],
+      "answer": 0,
+      "explanation": "HWE translates allele frequencies into a genotype-frequency null expectation."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "P(AA)=p\u00b2; P(Aa)=2pq; P(aa)=q\u00b2",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "P(AA)=p\u00b2; P(Aa)=2pq; P(aa)=q\u00b2"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Using observed heterozygosity as 2pq without checking context",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Interpreting a deviation as proof of selection",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Hardy\u2013Weinberg equilibrium as a null model?",
+      "options": [
+        "Using observed heterozygosity as 2pq without checking context",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Using observed heterozygosity as 2pq without checking context"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Expected heterozygosity is 2pq for two alleles.",
+      "answer": true,
+      "explanation": "Correct: Expected heterozygosity is 2pq for two alleles."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Observed and expected counts can differ by sampling.",
+      "answer": true,
+      "explanation": "Correct: Observed and expected counts can differ by sampling."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Population mixture can reduce observed heterozygosity relative to pooled HWE expectation.",
+      "answer": true,
+      "explanation": "Correct: Population mixture can reduce observed heterozygosity relative to pooled HWE expectation."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "A HWE test can prove adaptation.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "p\u00b2+2pq+q\u00b2 can differ from one when p+q=1.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l2-random-sampling": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Drift as random sampling of gene copies?",
+      "options": [
+        "Drift has no directional expectation for a neutral allele, but it creates variance among populations.",
+        "Drift is a deterministic force toward p=0.5.",
+        "Variance increases with N.",
+        "Neutral alleles cannot change frequency."
+      ],
+      "answer": 0,
+      "explanation": "Drift has no directional expectation for a neutral allele, but it creates variance among populations."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "E[p\u2032|p]=p; Var(p\u2032|p)=p(1-p)/(2N)",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "E[p\u2032|p]=p; Var(p\u2032|p)=p(1-p)/(2N)"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Saying drift always lowers the frequency of rare alleles",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Confusing expected change with the variance of change",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Drift as random sampling of gene copies?",
+      "options": [
+        "Saying drift always lowers the frequency of rare alleles",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Saying drift always lowers the frequency of rare alleles"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Drift is stronger in smaller populations.",
+      "answer": true,
+      "explanation": "Correct: Drift is stronger in smaller populations."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Variance is largest near intermediate allele frequency.",
+      "answer": true,
+      "explanation": "Correct: Variance is largest near intermediate allele frequency."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Replicate populations diverge by chance.",
+      "answer": true,
+      "explanation": "Correct: Replicate populations diverge by chance."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "The expected neutral change is always negative.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Fixation and loss are impossible under drift.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l2-fixation": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Fixation, loss, and absorption?",
+      "options": [
+        "For a neutral allele, fixation probability equals initial frequency.",
+        "Every neutral mutation has fixation probability 0.5.",
+        "Fixation probability equals selection coefficient.",
+        "A rare allele is guaranteed to disappear immediately."
+      ],
+      "answer": 0,
+      "explanation": "For a neutral allele, fixation probability equals initial frequency."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "P(fixation)=p\u2080; P(loss)=1-p\u2080",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "P(fixation)=p\u2080; P(loss)=1-p\u2080"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Assuming a rare neutral allele cannot fix",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Confusing eventual probability with next-generation probability",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Fixation, loss, and absorption?",
+      "options": [
+        "Assuming a rare neutral allele cannot fix",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Assuming a rare neutral allele cannot fix"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Fixation and loss are absorbing states in the basic drift model.",
+      "answer": true,
+      "explanation": "Correct: Fixation and loss are absorbing states in the basic drift model."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "A neutral allele at p=0.1 fixes with probability 0.1.",
+      "answer": true,
+      "explanation": "Correct: A neutral allele at p=0.1 fixes with probability 0.1."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "One new diploid copy starts at 1/(2N).",
+      "answer": true,
+      "explanation": "Correct: One new diploid copy starts at 1/(2N)."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Probability of fixation specifies the exact fixation time.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Larger populations guarantee fixation.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l2-heterozygosity-ne": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Loss of heterozygosity and effective population size?",
+      "options": [
+        "Effective population size calibrates the strength of drift in a real population.",
+        "Ne is always larger than census size.",
+        "Heterozygosity increases under pure drift.",
+        "All demographic processes affect Ne identically."
+      ],
+      "answer": 0,
+      "explanation": "Effective population size calibrates the strength of drift in a real population."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "H_t = H_0(1 - 1/(2N_e))^t",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "H_t = H_0(1 - 1/(2N_e))^t"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Replacing Ne with census size without justification",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Interpreting the expectation as an exact locus trajectory",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Loss of heterozygosity and effective population size?",
+      "options": [
+        "Replacing Ne with census size without justification",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Replacing Ne with census size without justification"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Smaller Ne accelerates heterozygosity loss.",
+      "answer": true,
+      "explanation": "Correct: Smaller Ne accelerates heterozygosity loss."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Ne is defined relative to an idealized model.",
+      "answer": true,
+      "explanation": "Correct: Ne is defined relative to an idealized model."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Unequal family size can reduce Ne.",
+      "answer": true,
+      "explanation": "Correct: Unequal family size can reduce Ne."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Ht must equal zero after Ne generations.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "The equation gives the exact result for every locus.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l3-wf-transition": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of The Wright\u2013Fisher transition model?",
+      "options": [
+        "The Wright\u2013Fisher model specifies a probability distribution for the entire next generation.",
+        "Wright\u2013Fisher sampling is deterministic.",
+        "Generations overlap fully in the standard model.",
+        "The next allele count is normally distributed for every N."
+      ],
+      "answer": 0,
+      "explanation": "The Wright\u2013Fisher model specifies a probability distribution for the entire next generation."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "P(X_{t+1}=j | p_t)=C(2N,j)p_t^j(1-p_t)^(2N-j)",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "P(X_{t+1}=j | p_t)=C(2N,j)p_t^j(1-p_t)^(2N-j)"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Using N instead of 2N trials for an autosomal diploid locus",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Assuming the most likely outcome must occur",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in The Wright\u2013Fisher transition model?",
+      "options": [
+        "Using N instead of 2N trials for an autosomal diploid locus",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Using N instead of 2N trials for an autosomal diploid locus"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "There are 2N autosomal gene copies in a diploid population.",
+      "answer": true,
+      "explanation": "Correct: There are 2N autosomal gene copies in a diploid population."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "The transition is binomial under neutral sampling.",
+      "answer": true,
+      "explanation": "Correct: The transition is binomial under neutral sampling."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "The process is Markovian.",
+      "answer": true,
+      "explanation": "Correct: The process is Markovian."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Every next-generation frequency is equally likely.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "The model includes migration by default.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l3-moran": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of The Moran birth\u2013death model?",
+      "options": [
+        "Moran and Wright\u2013Fisher models represent drift with different replacement schemes and time scales.",
+        "Every Moran event replaces the entire population.",
+        "Neutral upward probability exceeds downward probability.",
+        "The allele count must change at every event."
+      ],
+      "answer": 0,
+      "explanation": "Moran and Wright\u2013Fisher models represent drift with different replacement schemes and time scales."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "P(i\u2192i+1)=P(i\u2192i-1)=(i/N)(1-i/N)",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "P(i\u2192i+1)=P(i\u2192i-1)=(i/N)(1-i/N)"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Comparing event counts directly with Wright\u2013Fisher generations",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Assuming the allele count always changes",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in The Moran birth\u2013death model?",
+      "options": [
+        "Comparing event counts directly with Wright\u2013Fisher generations",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Comparing event counts directly with Wright\u2013Fisher generations"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Population size remains constant in a Moran event.",
+      "answer": true,
+      "explanation": "Correct: Population size remains constant in a Moran event."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "The count changes by at most one.",
+      "answer": true,
+      "explanation": "Correct: The count changes by at most one."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Time-scale conversion is required for model comparison.",
+      "answer": true,
+      "explanation": "Correct: Time-scale conversion is required for model comparison."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Moran and Wright\u2013Fisher times are numerically identical without rescaling.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "The model cannot reach fixation.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l3-model-comparison": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Wright\u2013Fisher, Moran, and model choice?",
+      "options": [
+        "Model choice should be justified by the biological replacement process and inferential goal.",
+        "The more complex model is always better.",
+        "Model assumptions are irrelevant if simulations run.",
+        "Both models predict no fixation."
+      ],
+      "answer": 0,
+      "explanation": "Model choice should be justified by the biological replacement process and inferential goal."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "Wright\u2013Fisher: full replacement; Moran: one-at-a-time replacement",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Wright\u2013Fisher: full replacement; Moran: one-at-a-time replacement"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Calling one model universally correct",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Comparing waiting times without rescaling",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Wright\u2013Fisher, Moran, and model choice?",
+      "options": [
+        "Calling one model universally correct",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Calling one model universally correct"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Both models are stochastic.",
+      "answer": true,
+      "explanation": "Correct: Both models are stochastic."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Replacement scheme affects time scale.",
+      "answer": true,
+      "explanation": "Correct: Replacement scheme affects time scale."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "A useful model may still be simplified.",
+      "answer": true,
+      "explanation": "Correct: A useful model may still be simplified."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Wright\u2013Fisher explicitly models continuous birth and death.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Moran events replace 2N copies simultaneously.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l4-wahlund": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Population subdivision and the Wahlund effect?",
+      "options": [
+        "Pooling populations with different allele frequencies can create a heterozygote deficit.",
+        "The Wahlund effect requires selection.",
+        "Pooling always increases observed heterozygosity.",
+        "Within-deme frequencies must be identical."
+      ],
+      "answer": 0,
+      "explanation": "Pooling populations with different allele frequencies can create a heterozygote deficit."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "H_T = 2p\u0304(1-p\u0304); H_S = mean[2p_k(1-p_k)]",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "H_T = 2p\u0304(1-p\u0304); H_S = mean[2p_k(1-p_k)]"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Calling every heterozygote deficit inbreeding",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Calculating pooled HWE before checking structure",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Population subdivision and the Wahlund effect?",
+      "options": [
+        "Calling every heterozygote deficit inbreeding",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Calling every heterozygote deficit inbreeding"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "The effect arises from allele-frequency variance among demes.",
+      "answer": true,
+      "explanation": "Correct: The effect arises from allele-frequency variance among demes."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Each deme can be in HWE.",
+      "answer": true,
+      "explanation": "Correct: Each deme can be in HWE."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Sample design affects pooled inference.",
+      "answer": true,
+      "explanation": "Correct: Sample design affects pooled inference."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "The effect proves selfing.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "HT must equal HS under subdivision.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l4-fst": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of FST as a measure of differentiation?",
+      "options": [
+        "FST is a relative measure of differentiation, not a direct label for its cause.",
+        "FST is the absolute allele-frequency difference.",
+        "FST directly equals migration rate.",
+        "One locus is sufficient to infer local adaptation."
+      ],
+      "answer": 0,
+      "explanation": "FST is a relative measure of differentiation, not a direct label for its cause."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "F_ST = (H_T - H_S)/H_T",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "F_ST = (H_T - H_S)/H_T"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Interpreting FST as percent migrants",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Comparing values without considering marker diversity",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in FST as a measure of differentiation?",
+      "options": [
+        "Interpreting FST as percent migrants",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Interpreting FST as percent migrants"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "FST uses HS and HT.",
+      "answer": true,
+      "explanation": "Correct: FST uses HS and HT."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "FST can be affected by within-population diversity.",
+      "answer": true,
+      "explanation": "Correct: FST can be affected by within-population diversity."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Demography can generate heterogeneous differentiation.",
+      "answer": true,
+      "explanation": "Correct: Demography can generate heterogeneous differentiation."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "FST cannot be zero.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "High FST proves selection.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l4-migration-structure": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Migration, drift, and population structure?",
+      "options": [
+        "Migration homogenizes allele frequencies, whereas drift creates divergence among finite populations.",
+        "Migration always increases differentiation.",
+        "PCA axes directly estimate migration rates.",
+        "The island approximation has no assumptions."
+      ],
+      "answer": 0,
+      "explanation": "Migration homogenizes allele frequencies, whereas drift creates divergence among finite populations."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "p\u2032=(1-m)p_local + m p_migrant;  F_ST\u22481/(4N_em+1)",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "p\u2032=(1-m)p_local + m p_migrant;  F_ST\u22481/(4N_em+1)"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Converting FST to migration without checking equilibrium assumptions",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Calling PCA clusters populations without considering sampling",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Migration, drift, and population structure?",
+      "options": [
+        "Converting FST to migration without checking equilibrium assumptions",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Converting FST to migration without checking equilibrium assumptions"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Migration changes recipient allele frequency toward the source.",
+      "answer": true,
+      "explanation": "Correct: Migration changes recipient allele frequency toward the source."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "PCA is a covariance summary.",
+      "answer": true,
+      "explanation": "Correct: PCA is a covariance summary."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Drift and migration act in opposing directions on differentiation.",
+      "answer": true,
+      "explanation": "Correct: Drift and migration act in opposing directions on differentiation."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "An ancestry component is necessarily a real ancestral population.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "FST always yields an exact number of migrants.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l5-coalescent-pairs": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Coalescence of two lineages?",
+      "options": [
+        "Pairwise coalescent time scales linearly with effective population size.",
+        "Two lineages coalesce with probability 1/Ne in every diploid formulation.",
+        "Larger Ne shortens genealogies.",
+        "Expected time is the exact time for every pair."
+      ],
+      "answer": 0,
+      "explanation": "Pairwise coalescent time scales linearly with effective population size."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "P(coalescence in previous generation)=1/(2N_e); E[T_2]=2N_e",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "P(coalescence in previous generation)=1/(2N_e); E[T_2]=2N_e"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Using census size automatically",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Confusing expected waiting time with guaranteed time",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Coalescence of two lineages?",
+      "options": [
+        "Using census size automatically",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Using census size automatically"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Coalescence is traced backward in time.",
+      "answer": true,
+      "explanation": "Correct: Coalescence is traced backward in time."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "E[T2]=2Ne for the displayed diploid model.",
+      "answer": true,
+      "explanation": "Correct: E[T2]=2Ne for the displayed diploid model."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Mutation accumulates along genealogical branches.",
+      "answer": true,
+      "explanation": "Correct: Mutation accumulates along genealogical branches."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "All lineages coalesce simultaneously.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Coalescence probability is independent of population size.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l5-k-lineages": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Waiting times with k lineages?",
+      "options": [
+        "Coalescent intervals lengthen as the number of ancestral lineages declines.",
+        "E[Tk] increases with k.",
+        "There are k\u00b2 possible unordered pairs.",
+        "The first coalescence is usually the longest."
+      ],
+      "answer": 0,
+      "explanation": "Coalescent intervals lengthen as the number of ancestral lineages declines."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "E[T_k]=4N_e/[k(k-1)]",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "E[T_k]=4N_e/[k(k-1)]"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Using k instead of C(k,2)",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Assuming all intervals have equal expected length",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Waiting times with k lineages?",
+      "options": [
+        "Using k instead of C(k,2)",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Using k instead of C(k,2)"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "There are C(k,2) lineage pairs.",
+      "answer": true,
+      "explanation": "Correct: There are C(k,2) lineage pairs."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "The 2\u21921 interval is long on average.",
+      "answer": true,
+      "explanation": "Correct: The 2\u21921 interval is long on average."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Tree height and total branch length are different quantities.",
+      "answer": true,
+      "explanation": "Correct: Tree height and total branch length are different quantities."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "All intervals equal 2Ne.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Coalescent time is measured forward from the ancestor.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l5-theta-diversity": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Coalescent expectations for molecular diversity?",
+      "options": [
+        "Neutral diversity reflects both mutation rate and genealogical depth.",
+        "Theta equals mutation rate alone.",
+        "S is independent of sample size.",
+        "All variants contribute equally to pi."
+      ],
+      "answer": 0,
+      "explanation": "Neutral diversity reflects both mutation rate and genealogical depth."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "\u03b8=4N_e\u03bc;  \u03b8_W=S/a_n, where a_n=\u03a3_{i=1}^{n-1}1/i",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "\u03b8=4N_e\u03bc;  \u03b8_W=S/a_n, where a_n=\u03a3_{i=1}^{n-1}1/i"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Treating theta as Ne without specifying \u03bc",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Comparing S without correcting for sample size",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Coalescent expectations for molecular diversity?",
+      "options": [
+        "Treating theta as Ne without specifying \u03bc",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Treating theta as Ne without specifying \u03bc"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Theta is 4Ne\u03bc in the displayed diploid autosomal model.",
+      "answer": true,
+      "explanation": "Correct: Theta is 4Ne\u03bc in the displayed diploid autosomal model."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "ThetaW corrects S for sample size.",
+      "answer": true,
+      "explanation": "Correct: ThetaW corrects S for sample size."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Genealogy shape affects the SFS.",
+      "answer": true,
+      "explanation": "Correct: Genealogy shape affects the SFS."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Different theta estimators must always agree in finite data.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "A negative Tajima D proves a sweep.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l6-fitness-recursion": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Allele-frequency change under viability selection?",
+      "options": [
+        "Viability selection changes allele frequency through differential genotype contribution.",
+        "Mean fitness is the arithmetic mean of three fitnesses.",
+        "Dominance is irrelevant to rare alleles.",
+        "Selection always fixes the favored allele in one generation."
+      ],
+      "answer": 0,
+      "explanation": "Viability selection changes allele frequency through differential genotype contribution."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "p\u2032=[p\u00b2w_AA + pqw_Aa]/w\u0304;  w\u0304=p\u00b2w_AA+2pqw_Aa+q\u00b2w_aa",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "p\u2032=[p\u00b2w_AA + pqw_Aa]/w\u0304;  w\u0304=p\u00b2w_AA+2pqw_Aa+q\u00b2w_aa"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Forgetting to divide by mean fitness",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Using allele fitnesses where genotype fitnesses are required",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Allele-frequency change under viability selection?",
+      "options": [
+        "Forgetting to divide by mean fitness",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Forgetting to divide by mean fitness"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Fitness-weighted genotype frequencies must be normalized.",
+      "answer": true,
+      "explanation": "Correct: Fitness-weighted genotype frequencies must be normalized."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Recessive effects are hidden in heterozygotes.",
+      "answer": true,
+      "explanation": "Correct: Recessive effects are hidden in heterozygotes."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Selection strength depends on allele frequency.",
+      "answer": true,
+      "explanation": "Correct: Selection strength depends on allele frequency."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "p\u2032 can be calculated without q.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Mean fitness may be omitted from the recursion.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l6-fixation-selection": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Fixation probability under selection and drift?",
+      "options": [
+        "Selection changes fixation probability, while drift remains important when an allele is rare.",
+        "Every beneficial mutation fixes.",
+        "Neutral fixation probability is s.",
+        "Ne s has units of generations."
+      ],
+      "answer": 0,
+      "explanation": "Selection changes fixation probability, while drift remains important when an allele is rare."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "P_fix\u22482s for a new additive beneficial mutation; neutral P_fix=1/(2N)",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "P_fix\u22482s for a new additive beneficial mutation; neutral P_fix=1/(2N)"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Interpreting 2s as certainty",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Using the approximation for any dominance or population size",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Fixation probability under selection and drift?",
+      "options": [
+        "Interpreting 2s as certainty",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Interpreting 2s as certainty"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Beneficial alleles can be lost by drift.",
+      "answer": true,
+      "explanation": "Correct: Beneficial alleles can be lost by drift."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Neutral fixation probability is initial frequency.",
+      "answer": true,
+      "explanation": "Correct: Neutral fixation probability is initial frequency."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Ne s compares selection with drift.",
+      "answer": true,
+      "explanation": "Correct: Ne s compares selection with drift."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "The 2s approximation is exact for all models.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Deleterious alleles can never fix.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l6-mutation-selection": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Purifying selection and mutation\u2013selection balance?",
+      "options": [
+        "Deleterious alleles persist because mutation replenishes variation removed by selection.",
+        "All deleterious alleles disappear permanently.",
+        "The recessive equilibrium is \u03bc/s.",
+        "Stronger selection raises equilibrium frequency."
+      ],
+      "answer": 0,
+      "explanation": "Deleterious alleles persist because mutation replenishes variation removed by selection."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "q\u0302\u2248\u221a(\u03bc/s) for a fully recessive deleterious allele; q\u0302\u2248\u03bc/(hs) when heterozygotes are selected",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "q\u0302\u2248\u221a(\u03bc/s) for a fully recessive deleterious allele; q\u0302\u2248\u03bc/(hs) when heterozygotes are selected"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Calling persistence evidence of benefit",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Using the recessive formula when h>0",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Purifying selection and mutation\u2013selection balance?",
+      "options": [
+        "Calling persistence evidence of benefit",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Calling persistence evidence of benefit"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Mutation\u2013selection balance is dynamic.",
+      "answer": true,
+      "explanation": "Correct: Mutation\u2013selection balance is dynamic."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Recessive deleterious alleles can be hidden in heterozygotes.",
+      "answer": true,
+      "explanation": "Correct: Recessive deleterious alleles can be hidden in heterozygotes."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Equilibrium depends on mutation and selection.",
+      "answer": true,
+      "explanation": "Correct: Equilibrium depends on mutation and selection."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Persistence implies adaptation.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "The formula is unaffected by dominance.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l7-sfs": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of The site-frequency spectrum as demographic evidence?",
+      "options": [
+        "The SFS is a compressed description of how mutations are distributed across genealogy branches.",
+        "The SFS ignores allele frequency.",
+        "A folded SFS requires ancestral state.",
+        "Expansion removes all rare alleles."
+      ],
+      "answer": 0,
+      "explanation": "The SFS is a compressed description of how mutations are distributed across genealogy branches."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "\u03be_i = number of sites with derived count i;  E[\u03be_i]\u221d\u03b8/i under the standard neutral model",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "\u03be_i = number of sites with derived count i;  E[\u03be_i]\u221d\u03b8/i under the standard neutral model"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Calling every singleton sequencing error",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Mixing folded and unfolded spectra",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in The site-frequency spectrum as demographic evidence?",
+      "options": [
+        "Calling every singleton sequencing error",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Calling every singleton sequencing error"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "External branches contribute rare variants.",
+      "answer": true,
+      "explanation": "Correct: External branches contribute rare variants."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "An outgroup is used to polarize an unfolded SFS.",
+      "answer": true,
+      "explanation": "Correct: An outgroup is used to polarize an unfolded SFS."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Demography and selection can produce overlapping signatures.",
+      "answer": true,
+      "explanation": "Correct: Demography and selection can produce overlapping signatures."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Every excess of rare variants proves growth.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "The SFS contains genotype phase.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l7-tajima": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Tajima\u2019s D as a contrast of diversity estimators?",
+      "options": [
+        "Tajima\u2019s D contrasts frequency-sensitive and segregating-site estimators of theta.",
+        "Negative D uniquely proves a sweep.",
+        "Positive D means no rare variants.",
+        "D is an allele frequency."
+      ],
+      "answer": 0,
+      "explanation": "Tajima\u2019s D contrasts frequency-sensitive and segregating-site estimators of theta."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "D = (\u03c0 - \u03b8_W)/sqrt(e\u2081S + e\u2082S(S-1))",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "D = (\u03c0 - \u03b8_W)/sqrt(e\u2081S + e\u2082S(S-1))"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Reading D as a direct selection coefficient",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Ignoring sample-size constants and missing data",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Tajima\u2019s D as a contrast of diversity estimators?",
+      "options": [
+        "Reading D as a direct selection coefficient",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Reading D as a direct selection coefficient"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Negative D can reflect excess rare variants.",
+      "answer": true,
+      "explanation": "Correct: Negative D can reflect excess rare variants."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Demography can affect D.",
+      "answer": true,
+      "explanation": "Correct: Demography can affect D."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Callable sequence and sample size matter.",
+      "answer": true,
+      "explanation": "Correct: Callable sequence and sample size matter."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "D directly estimates Ne.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "The numerator is pi+thetaW.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l7-model-fitting": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Demographic model fitting and uncertainty?",
+      "options": [
+        "Demographic inference compares explicit histories and must report uncertainty and alternative explanations.",
+        "The best likelihood proves historical truth.",
+        "More parameters always improve inference.",
+        "Linked SNPs are automatically independent."
+      ],
+      "answer": 0,
+      "explanation": "Demographic inference compares explicit histories and must report uncertainty and alternative explanations."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "L(\u0398|SFS) \u221d P(observed SFS | demographic parameters \u0398)",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "L(\u0398|SFS) \u221d P(observed SFS | demographic parameters \u0398)"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Calling the highest likelihood model true",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Reporting point estimates without uncertainty",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Demographic model fitting and uncertainty?",
+      "options": [
+        "Calling the highest likelihood model true",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Calling the highest likelihood model true"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Different parameter combinations can fit similarly.",
+      "answer": true,
+      "explanation": "Correct: Different parameter combinations can fit similarly."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Residuals help diagnose model failure.",
+      "answer": true,
+      "explanation": "Correct: Residuals help diagnose model failure."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Simulation can evaluate fitted models.",
+      "answer": true,
+      "explanation": "Correct: Simulation can evaluate fitted models."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Confidence intervals are unnecessary for large SNP datasets.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "A one-population SFS directly estimates migration.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l8-linked-selection": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Selective sweeps and linked neutral variation?",
+      "options": [
+        "Selection at one site can reshape neutral variation at linked sites.",
+        "A sweep increases local genealogical depth.",
+        "Recombination strengthens linkage to the target.",
+        "Low diversity uniquely identifies positive selection."
+      ],
+      "answer": 0,
+      "explanation": "Selection at one site can reshape neutral variation at linked sites."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "Approximate sweep scale depends on s/r and local recombination; no single summary is sufficient",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Approximate sweep scale depends on s/r and local recombination; no single summary is sufficient"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Calling every low-diversity region a sweep",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Ignoring recombination-rate variation",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Selective sweeps and linked neutral variation?",
+      "options": [
+        "Calling every low-diversity region a sweep",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Calling every low-diversity region a sweep"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Hitchhiking affects linked neutral variants.",
+      "answer": true,
+      "explanation": "Correct: Hitchhiking affects linked neutral variants."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Recombination limits the genomic span of a sweep.",
+      "answer": true,
+      "explanation": "Correct: Recombination limits the genomic span of a sweep."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Demography can mimic SFS changes.",
+      "answer": true,
+      "explanation": "Correct: Demography can mimic SFS changes."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Every selected allele creates the same sweep width.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Linked selection affects only coding sites.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l8-genome-scans": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Genome-wide scans and empirical null distributions?",
+      "options": [
+        "Genome-scan outliers are hypotheses requiring genomic and biological validation.",
+        "Every outlier is adaptive.",
+        "Linked markers are independent.",
+        "Window size cannot affect results."
+      ],
+      "answer": 0,
+      "explanation": "Genome-scan outliers are hypotheses requiring genomic and biological validation."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "Outlier status = statistic relative to a justified empirical or simulated null distribution",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Outlier status = statistic relative to a justified empirical or simulated null distribution"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Counting linked SNPs as independent evidence",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Using an arbitrary window without sensitivity analysis",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Genome-wide scans and empirical null distributions?",
+      "options": [
+        "Counting linked SNPs as independent evidence",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Counting linked SNPs as independent evidence"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Demography shapes genome-wide statistics.",
+      "answer": true,
+      "explanation": "Correct: Demography shapes genome-wide statistics."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "LD can cluster extreme SNPs.",
+      "answer": true,
+      "explanation": "Correct: LD can cluster extreme SNPs."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Complementary summaries improve interpretation.",
+      "answer": true,
+      "explanation": "Correct: Complementary summaries improve interpretation."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "A Manhattan peak identifies the causal mutation exactly.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Functional annotation alone proves selection.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "l8-selection-demography": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Distinguishing selection from demographic history?",
+      "options": [
+        "Selection inference is strongest when localized evidence exceeds expectations under demographic history.",
+        "Demography affects every locus identically.",
+        "One statistic separates selection from history.",
+        "Functional annotation is a null model."
+      ],
+      "answer": 0,
+      "explanation": "Selection inference is strongest when localized evidence exceeds expectations under demographic history."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "Inference = observed local pattern compared with genome-wide and model-based demographic expectations",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Inference = observed local pattern compared with genome-wide and model-based demographic expectations"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Fitting demography only to candidate regions",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Calling genome-wide skew evidence for many independent sweeps",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Distinguishing selection from demographic history?",
+      "options": [
+        "Fitting demography only to candidate regions",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Fitting demography only to candidate regions"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Demographic misspecification can inflate outliers.",
+      "answer": true,
+      "explanation": "Correct: Demographic misspecification can inflate outliers."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Localized multi-statistic evidence is stronger than one extreme value.",
+      "answer": true,
+      "explanation": "Correct: Localized multi-statistic evidence is stronger than one extreme value."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Conclusions should reflect model uncertainty.",
+      "answer": true,
+      "explanation": "Correct: Conclusions should reflect model uncertainty."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "A fitted demographic model is certainly true.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Selection cannot affect many loci.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "t1-ld-recombination": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Recombination, linkage disequilibrium, and the population recombination parameter?",
+      "options": [
+        "LD measures statistical association, not simply physical distance.",
+        "D is standardized between zero and one.",
+        "High LD proves physical adjacency.",
+        "rho equals r."
+      ],
+      "answer": 0,
+      "explanation": "LD measures statistical association, not simply physical distance."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "D=f_AB-p_Ap_B;  r\u00b2=D\u00b2/(p_Aq_Ap_Bq_B);  \u03c1=4N_e r",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "D=f_AB-p_Ap_B;  r\u00b2=D\u00b2/(p_Aq_Ap_Bq_B);  \u03c1=4N_e r"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Equating LD with physical linkage",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Comparing raw D across different allele frequencies",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Recombination, linkage disequilibrium, and the population recombination parameter?",
+      "options": [
+        "Equating LD with physical linkage",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Equating LD with physical linkage"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "r\u00b2 depends on D and allele frequencies.",
+      "answer": true,
+      "explanation": "Correct: r\u00b2 depends on D and allele frequencies."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Admixture can create LD.",
+      "answer": true,
+      "explanation": "Correct: Admixture can create LD."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Recombination erodes associations.",
+      "answer": true,
+      "explanation": "Correct: Recombination erodes associations."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Unlinked loci can never show LD.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "LD identifies causal direction.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ],
+  "t2-molecular-selection-tests": [
+    {
+      "id": "mc1",
+      "type": "mcq",
+      "question": "Which statement best captures the central result of Direct and linked molecular tests of selection?",
+      "options": [
+        "Direct and linked tests interrogate different consequences of selection and should be interpreted jointly but cautiously.",
+        "dN/dS below one proves no positive selection at any site.",
+        "The MK test uses only polymorphism.",
+        "Alpha is a selection coefficient."
+      ],
+      "answer": 0,
+      "explanation": "Direct and linked tests interrogate different consequences of selection and should be interpreted jointly but cautiously."
+    },
+    {
+      "id": "mc2",
+      "type": "mcq",
+      "question": "Which equation or relationship is central to this lesson?",
+      "options": [
+        "Neutral MK expectation: P_N/P_S = D_N/D_S;  \u03b1 = 1 - (D_S P_N)/(D_N P_S)",
+        "A p-value alone identifies the evolutionary process.",
+        "All genotype frequencies are equal.",
+        "Sample size has no influence on uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Neutral MK expectation: P_N/P_S = D_N/D_S;  \u03b1 = 1 - (D_S P_N)/(D_N P_S)"
+    },
+    {
+      "id": "mc3",
+      "type": "mcq",
+      "question": "Which practice is required for a defensible interpretation?",
+      "options": [
+        "Define variables, state assumptions, calculate carefully, and separate pattern from process.",
+        "Reading dN/dS>1 at one gene as proof without uncertainty",
+        "Report only whether the result is significant.",
+        "Ignore alternative explanations."
+      ],
+      "answer": 0,
+      "explanation": "Population-genetic inference requires explicit assumptions and proportional interpretation."
+    },
+    {
+      "id": "mc4",
+      "type": "mcq",
+      "question": "Which item is most important to check before applying the model?",
+      "options": [
+        "Whether the biological system and data satisfy the model assumptions.",
+        "Ignoring slightly deleterious nonsynonymous polymorphisms in MK",
+        "Whether the preferred conclusion is interesting.",
+        "Whether the software produces a figure."
+      ],
+      "answer": 0,
+      "explanation": "A model is informative only relative to its assumptions and data scale."
+    },
+    {
+      "id": "mc5",
+      "type": "mcq",
+      "question": "Which error is specifically highlighted in Direct and linked molecular tests of selection?",
+      "options": [
+        "Reading dN/dS>1 at one gene as proof without uncertainty",
+        "Defining every symbol.",
+        "Checking units and scale.",
+        "Reporting uncertainty."
+      ],
+      "answer": 0,
+      "explanation": "Reading dN/dS>1 at one gene as proof without uncertainty"
+    },
+    {
+      "id": "tf1",
+      "type": "tf",
+      "question": "Synonymous sites often provide a reference category.",
+      "answer": true,
+      "explanation": "Correct: Synonymous sites often provide a reference category."
+    },
+    {
+      "id": "tf2",
+      "type": "tf",
+      "question": "Slightly deleterious polymorphisms can bias MK inference.",
+      "answer": true,
+      "explanation": "Correct: Slightly deleterious polymorphisms can bias MK inference."
+    },
+    {
+      "id": "tf3",
+      "type": "tf",
+      "question": "Recombination affects linked-selection signals.",
+      "answer": true,
+      "explanation": "Correct: Recombination affects linked-selection signals."
+    },
+    {
+      "id": "tf4",
+      "type": "tf",
+      "question": "Every nonsynonymous substitution is adaptive.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    },
+    {
+      "id": "tf5",
+      "type": "tf",
+      "question": "Demography has no effect on polymorphism-based tests.",
+      "answer": false,
+      "explanation": "False: this contradicts the lesson."
+    }
+  ]
+}

@@ -39,6 +39,9 @@ export type Lesson = {
   sourceBasis?: string;
   concepts: string[];
   assessment: AssessmentQuestion[];
+  equationFormat?: "latex";
+  practice?: { question: string; solution: string }[];
+  references?: string[];
 };
 
 export type Module = {

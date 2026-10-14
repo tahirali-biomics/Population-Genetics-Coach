@@ -53,6 +53,13 @@ import {
   AssessmentQuestion,
 } from "./data";
 import { workspaceGuides } from "./workspaceGuides";
+import { LessonContent, LessonPractice } from "./LessonContent";
+import type { StoredAnswers } from "./assessmentState";
+import { storedAssessmentAnswers } from "./assessmentAttempt";
+import type { AssessmentDraft } from "./assessmentAttempt";
+import { AssessmentQuiz } from "./AssessmentQuiz";
+import { AIActivityHeading } from "./AIActivityHeading";
+import { buildTutorContext } from "./courseContext";
 import { supabase } from "./supabase";
 import {
   useVoicePreferences,
@@ -69,7 +76,7 @@ type Attempt = {
   contextId: string;
   score: number;
   max: number;
-  answers: Record<string, number | boolean>;
+  answers: StoredAnswers;
   createdAt: string;
 };
 type State = {
@@ -161,14 +168,12 @@ function equationToLatex(input: string): string {
     .replace(/->/g, "\\rightarrow ");
 }
 
-function LessonEquation({ equation }: { equation: string }) {
-  const latex = equationToLatex(equation);
+function LessonEquation({ equation, format }: { equation: string; format?: "latex" }) {
+  const latex = format === "latex" ? equation : equationToLatex(equation);
 
   return (
     <div className="equation lesson-equation">
-      <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>
-        {`$$${latex}$$`}
-      </ReactMarkdown>
+      <LessonContent text={`$$\n${latex}\n$$`} />
     </div>
   );
 }
@@ -532,127 +537,48 @@ function Paths({
     </>
   );
 }
-function Quiz({
-  questions,
-  onSubmit,
-  previous,
-}: {
-  questions: AssessmentQuestion[];
-  onSubmit: (score: number, answers: Record<string, number | boolean>) => void;
-  previous?: Attempt;
-}) {
-  const [answers, setAnswers] = useState<Record<string, number | boolean>>(
-    previous?.answers || {},
-  );
-  const [result, setResult] = useState<number | undefined>(previous?.score);
-  function submit() {
-    let s = 0;
-    questions.forEach((q) => {
-      if (answers[q.id] === q.answer) s++;
-    });
-    setResult(s);
-    onSubmit(s, answers);
-  }
-  return (
-    <section className="panel glass assessment">
-      <small>OBJECTIVE SELF-ASSESSMENT</small>
-      <h2>5 multiple choice + 5 true/false</h2>
-      {questions.map((q, i) => (
-        <div className="question" key={q.id}>
-          <b>
-            {i + 1}. {q.question}
-          </b>
-          {q.type === "mcq" ? (
-            <div className="options">
-              {q.options?.map((o, j) => (
-                <label key={o}>
-                  <input
-                    type="radio"
-                    name={q.id}
-                    checked={answers[q.id] === j}
-                    onChange={() => setAnswers({ ...answers, [q.id]: j })}
-                  />
-                  <span>{o}</span>
-                </label>
-              ))}
-            </div>
-          ) : (
-            <div className="tf">
-              <button
-                className={answers[q.id] === true ? "selected" : ""}
-                onClick={() => setAnswers({ ...answers, [q.id]: true })}
-              >
-                Correct
-              </button>
-              <button
-                className={answers[q.id] === false ? "selected" : ""}
-                onClick={() => setAnswers({ ...answers, [q.id]: false })}
-              >
-                False
-              </button>
-            </div>
-          )}
-          {result !== undefined && (
-            <p
-              className={
-                answers[q.id] === q.answer ? "explain right" : "explain wrong"
-              }
-            >
-              {answers[q.id] === q.answer ? "✓ " : "Review: "}
-              {q.explanation}
-            </p>
-          )}
-        </div>
-      ))}
-      <button className="primary full" onClick={submit}>
-        Submit and record attempt
-      </button>
-      {result !== undefined && (
-        <div className="score-card">
-          <b>
-            {result}/{questions.length}
-          </b>
-          <span>{Math.round((result / questions.length) * 100)}%</span>
-        </div>
-      )}
-    </section>
-  );
-}
 function Lesson({
   state,
   setState,
   role,
   canPreview,
+  userId,
+  historyReady,
 }: {
   state: State;
   setState: (s: State) => void;
   role: string;
   canPreview: boolean;
+  userId: string;
+  historyReady: boolean;
 }) {
   const { id = "" } = useParams();
   const l = lessons.find((x) => x.id === id);
   if (!l) return <p>Lesson not found.</p>;
-  const assessmentLength = l.assessment.length;
   if (role === "guest" && !canPreview)
     return <LockedPreview title={l.title} text={l.summary} />;
   const done = state.completedLessons.includes(id);
-  const prev = state.attempts.filter((a) => a.contextId === id).at(-1);
-  function record(score: number, answers: Record<string, number | boolean>) {
+  const lessonAttempts = historyReady ? state.attempts.filter(a => a.contextType === "lesson" && a.contextId === id) : [];
+  const prev = lessonAttempts.at(-1);
+  function record(draft: AssessmentDraft) {
+    const score = draft.score!;
+    const answers = storedAssessmentAnswers(draft);
+    if (state.attempts.some(attempt => attempt.id === draft.presentation.attemptId)) return;
     const a: Attempt = {
-      id: crypto.randomUUID(),
+      id: draft.presentation.attemptId,
       contextType: "lesson",
       contextId: id,
       score,
-      max: l!.assessment.length,
+      max: draft.presentation.questions.length,
       answers,
-      createdAt: new Date().toISOString(),
+      createdAt: draft.submittedAt!,
     };
     setState({ ...state, attempts: [...state.attempts, a] });
     void syncAttempt(a);
     void syncLessonProgress(
       id,
       null,
-      Math.round((score / Math.max(1, assessmentLength)) * 100),
+      Math.round((score / Math.max(1, draft.presentation.questions.length)) * 100),
       true,
     );
   }
@@ -679,7 +605,7 @@ function Lesson({
         <div className="lesson-source glass">
           <LockKeyhole />
           <div>
-            <b>Approved source basis</b>
+            <b>Source basis</b>
             <span>
               {l.sourceBasis ||
                 `${l.lecture}; uploaded course books, exercises, and practical material only.`}
@@ -702,23 +628,21 @@ function Lesson({
         {l.sections.map(([h, p]) => (
           <article className="panel glass" key={h}>
             <h2>{h}</h2>
-            {p.split("\n\n").map((x, i) => (
-              <p key={i}>{x}</p>
-            ))}
+            <LessonContent text={p} />
           </article>
         ))}
         <article className="panel glass">
           <h2>Model or equation</h2>
-          <LessonEquation equation={l.equation} />
+          <LessonEquation equation={l.equation} format={l.equationFormat} />
           <ul>
             {l.variables.map((x) => (
-              <li key={x}>{x}</li>
+              <li key={x}><LessonContent text={x} /></li>
             ))}
           </ul>
         </article>
         <article className="panel glass">
           <h2>Worked example</h2>
-          <p>{l.workedExample}</p>
+          <LessonContent text={l.workedExample} />
           <div className="interpret-box">
             <b>Interpretation check</b>
             <span>
@@ -731,20 +655,32 @@ function Lesson({
           <h2>Common mistakes</h2>
           <ul>
             {l.commonMistakes.map((x) => (
-              <li key={x}>{x}</li>
+              <li key={x}><LessonContent text={x} /></li>
             ))}
           </ul>
         </article>
       </div>
+      <section className="panel glass"><h2>Takeaways</h2><LessonContent text={l.keyStatement} /></section>
+      {l.practice && <LessonPractice items={l.practice} />}
+      {l.references && (
+        <section className="panel glass">
+          <h2>Sources and further study</h2>
+          <ul>{l.references.map((reference) => (
+            <li key={reference}><LessonContent text={reference} /></li>
+          ))}</ul>
+        </section>
+      )}
       <AIActivity
         contextId={l.id}
         title={l.title}
         prompt={l.aiPrompt}
+        displayPrompt="Use one model or example from this lesson to explain a biological result. Define the symbols, state assumptions, show your reasoning or calculation, and discuss one limitation."
         placeholder="Write a structured answer: assumptions → reasoning → result → biological interpretation → limitations."
         state={state}
         setState={setState}
       />
-      <Quiz questions={l.assessment} previous={prev} onSubmit={record} />
+      <AssessmentQuiz key={`${userId}:${l.id}`} lessonId={l.id} userId={userId} questions={l.assessment} previous={prev}
+        history={lessonAttempts} onSubmit={record} />
       <button
         className={done ? "complete done" : "complete"}
         onClick={complete}
@@ -763,6 +699,7 @@ async function syncAttempt(a: Attempt) {
     if (!user) return;
 
     const { error } = await supabase.from("learning_attempts").insert({
+      id: a.id,
       user_id: user.id,
       context_type: a.contextType,
       context_id: a.contextId,
@@ -1238,6 +1175,7 @@ function AIActivity({
   contextId,
   title,
   prompt,
+  displayPrompt,
   placeholder,
   state,
   setState,
@@ -1247,6 +1185,7 @@ function AIActivity({
   contextId: string;
   title: string;
   prompt: string;
+  displayPrompt?: string;
   placeholder: string;
   state: State;
   setState: (s: State) => void;
@@ -1277,7 +1216,7 @@ function AIActivity({
       }
       const { data, error } = await supabase.functions.invoke(
         "lesson-evaluator",
-        { body: { contextId, title, prompt, response: text } },
+        { body: { contextId, title, prompt: displayPrompt ? `Student task: ${displayPrompt}\n\nAuthored lesson reference:\n${prompt}` : prompt, response: text } },
       );
       if (error) throw error;
       const returnedFeedback = normalizeAiResponse(
@@ -1304,7 +1243,7 @@ function AIActivity({
       }
     >
       {!compact && <small>AI-EVALUATED TRANSFER TASK</small>}
-      <h4>{compact ? "Your working response" : prompt}</h4>
+      <AIActivityHeading heading={compact ? "Your working response" : displayPrompt ? "Apply this lesson" : title} task={compact ? undefined : displayPrompt} />
       <VoiceTextarea
         value={text}
         onChange={setText}
@@ -1421,7 +1360,7 @@ function SpeakButton({ text, id }: { text: string; id: string }) {
     </button>
   );
 }
-type ExamQuestion = { moduleId: string; title: string; prompt: string };
+type ExamQuestion = { moduleId: string; title: string; prompt: string; revision?: number };
 const progressiveExamPool: ExamQuestion[] = [
   {
     moduleId: "lecture1",
@@ -1432,8 +1371,9 @@ const progressiveExamPool: ExamQuestion[] = [
   {
     moduleId: "lecture1",
     title: "Sequence diversity",
+    revision: 2,
     prompt:
-      "Five aligned sequences of 20 bp contain eight total pairwise differences across all ten sequence pairs and six segregating sites. Calculate nucleotide diversity per site, state what the statistic measures, and explain why a segregating-site estimator weights the data differently.",
+      "Five aligned sequences of 20 bp contain 28 total pairwise differences across all ten sequence pairs and six segregating sites. Calculate nucleotide diversity per site, state what the statistic measures, and explain why a segregating-site estimator weights the data differently.",
   },
   {
     moduleId: "lecture1",
@@ -1645,7 +1585,7 @@ function MockExam({
             </div>
             <p>{q.prompt}</p>
             <AIActivity
-              contextId={`mock-exam-${q.moduleId}-${i + 1}`}
+              contextId={`mock-exam-${q.moduleId}-${i + 1}${q.revision ? `-v${q.revision}` : ""}`}
               title={q.title}
               prompt={q.prompt}
               placeholder="Show equations, calculations, definitions, assumptions, and biological interpretation."
@@ -2103,6 +2043,7 @@ function Tutor({
           message: question,
           mode: "theory",
           conversation: priorConversation,
+          courseContext: buildTutorContext(`${priorConversation.slice(-2).map((turn) => turn.content).join(" ")} ${question}`, lessons, state.completedLessons),
         },
       });
 
@@ -2570,6 +2511,8 @@ export default function App() {
     }
   });
   const [session, setSession] = useState<Session | null>(null);
+  // Do not attribute the legacy shared browser cache to a newly signed-in account.
+  const [historyOwner, setHistoryOwner] = useState<string | null>(supabase ? null : "guest");
   const [role, setRole] = useState("guest");
   const [authReady, setAuthReady] = useState(!supabase);
   const [roleReady, setRoleReady] = useState(!supabase);
@@ -2646,6 +2589,7 @@ export default function App() {
 
     async function loadRemoteState() {
       if (!session?.user || !supabase) return;
+      setHistoryOwner(null);
 
       const [
         lessonResult,
@@ -2728,6 +2672,7 @@ export default function App() {
 
       setStateRaw(remoteState);
       localStorage.setItem("pg-state-v06", JSON.stringify(remoteState));
+      setHistoryOwner(session.user.id);
     }
 
     void loadRemoteState();
@@ -2776,6 +2721,8 @@ export default function App() {
           path="/lesson/:id"
           element={
             <Lesson
+              userId={session?.user.id || "guest"}
+              historyReady={historyOwner === (session?.user.id || "guest")}
               state={state}
               setState={setState}
               role={visibleRole}
